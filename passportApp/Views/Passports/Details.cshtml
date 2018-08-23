@@ -1,0 +1,82 @@
+﻿@model passportApp.Models.ValidationResults
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Validation Results</title>
+    <link rel="stylesheet" href="../../Content/main.css">
+</head>
+<body>
+<div style="horiz-align: center; vertical-align: middle; width: 100%;" class="centered">
+    <div class="divTable centered" style="width: 400px; border: solid 1px black;">
+        <div class="divTableBody">
+            <div class="divGreyTableRow">
+                <div class="divTableCell header" style="width: 100%;">Validation Results for Passport No @(Model.PassportNumber)</div>
+                <div class="divTableCell">&nbsp;</div>
+                <div class="divTableCell">&nbsp;</div>
+            </div>
+            &nbsp;
+            <div class="divGreyTableRow">
+                <div class="divTableCell">@Html.LabelFor(model => model.PassportNumberCheckDigit)</div>
+                <div class="divTableCell">&nbsp;</div>
+                <div class="divTableCell">@(Model.PassportNumberCheckDigit ? "PASS" : "FAIL")</div>
+            </div>
+            <div class="divAlternateRowGrey">
+                <div class="divTableCell">@Html.LabelFor(model => model.DateOfBirthCheckDigit)</div>
+                <div class="divTableCell">&nbsp;</div>
+                <div class="divTableCell">@(Model.DateOfBirthCheckDigit ? "PASS" : "FAIL")</div>
+            </div>
+            <div class="divGreyTableRow ">
+                <div class="divTableCell">@Html.LabelFor(model => model.PassportExpirationDateCheckDigit)</div>
+                <div class="divTableCell">&nbsp;</div>
+                <div class="divTableCell">@(Model.PassportExpirationDateCheckDigit ? "PASS" : "FAIL")</div>
+            </div>
+            <div class="divAlternateRowGrey ">
+                <div class="divTableCell">@Html.LabelFor(model => model.PersonalNumberCheckDigit)</div>
+                <div class="divTableCell">&nbsp;</div>
+                <div class="divTableCell">@(Model.PersonalNumberCheckDigit ? "PASS" : "FAIL")</div>
+            </div>
+            <div class="divGreyTableRow ">
+                <div class="divTableCell">@Html.LabelFor(model => model.FinalCheckDigit)</div>
+                <div class="divTableCell">&nbsp;</div>
+                <div class="divTableCell">@(Model.FinalCheckDigit ? "PASS" : "FAIL")</div>
+            </div>
+            <div class="divAlternateRowGrey ">
+                <div class="divTableCell">@Html.LabelFor(model => model.GenderCrossCheck)</div>
+                <div class="divTableCell">&nbsp;</div>
+                <div class="divTableCell">@(Model.GenderCrossCheck ? "PASS" : "FAIL")</div>
+            </div>
+            <div class="divGreyTableRow ">
+                <div class="divTableCell">@Html.LabelFor(model => model.DateOfBirthCrossCheck)</div>
+                <div class="divTableCell">&nbsp;</div>
+                <div class="divTableCell">@(Model.DateOfBirthCrossCheck ? "PASS" : "FAIL")</div>
+            </div>
+            <div class="divAlternateRowGrey ">
+                <div class="divTableCell">@Html.LabelFor(model => model.ExpirationDataCrossCheck)</div>
+                <div class="divTableCell">&nbsp;</div>
+                <div class="divTableCell">@(Model.ExpirationDataCrossCheck ? "PASS" : "FAIL")</div>
+            </div>
+            <div class="divGreyTableRow ">
+                <div class="divTableCell">@Html.LabelFor(model => model.NationalityCrossCheck)</div>
+                <div class="divTableCell">&nbsp;</div>
+                <div class="divTableCell">@(Model.NationalityCrossCheck ? "PASS" : "FAIL")</div>
+            </div>
+            <div class="divAlternateRowGrey ">
+                <div class="divTableCell">@Html.LabelFor(model => model.PassportNumberCrossCheck)</div>
+                <div class="divTableCell">&nbsp;</div>
+                <div class="divTableCell">@(Model.PassportNumberCrossCheck ? "PASS" : "FAIL")</div>
+            </div>
+            </div>
+    </div>
+</div>
+    <p>
+       @Html.ActionLink("Back", "Validate")
+    </p>
+</body>
+</html>

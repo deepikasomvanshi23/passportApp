@@ -1,0 +1,93 @@
+﻿@model passportApp.Models.Passport
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Validate Passport</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../../Content/main.css">
+    <script src='@Url.Content("~/Scripts/jquery.validate.js")' type='text/javascript'></script>
+    <script src='@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")' type='text/javascript'></script>
+</head>
+<body>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".datepicker").attr("readonly", "true");
+            $(".datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1900:2018",
+                dateFormat: 'dd/mm/yy'
+            }).datepicker("setDate", new Date());
+        });
+    </script>
+    <div style="horiz-align: center; vertical-align: middle; width: 100%;" class="centered">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal centered mainDiv">
+                <div class="leftDiv">
+                    <img src="../../Images/human.png" style="padding:10px;" />
+                </div>
+                <div class="rightDiv">
+                    <div class="divTable" style="width: 100%;">
+                        <div class="divTableBody">
+                            <div class="divTableRow">
+                                <div class="divTableCell">@Html.LabelFor(model => model.PassportNumber, htmlAttributes: new { @class = "control-label col-md-2" })</div>
+                                <div class="divTableCell">&nbsp;</div>
+                                <div class="divTableCell">@Html.TextBoxFor(model => model.PassportNumber, new { htmlAttributes = new { @class = "form-control textbox" } })</div>
+                                <div class="divTableCell">@Html.ValidationMessageFor(model => model.PassportNumber, "", new { @class = "text-danger" })</div>
+                            </div>
+                            <div class="divTableRow">
+                                <div class="divTableCell">@Html.LabelFor(model => model.Nationality, htmlAttributes: new { @class = "control-label col-md-2" })</div>
+                                <div class="divTableCell">&nbsp;</div>
+                                <div class="divTableCell">@Html.DropDownListFor(model => model.Nationality, Model.CountryCodesList, new { @class = "dropdown" })</div>
+
+                                <div class="divTableCell">
+                                    @Html.ValidationMessageFor(model => model.Nationality, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="divTableRow">
+                                <div class="divTableCell">@Html.LabelFor(model => model.DateOfBirth, htmlAttributes: new { @class = "control-label col-md-2" })</div>
+                                <div class="divTableCell">&nbsp;</div>
+                                <div class="divTableCell">@Html.TextBoxFor(model => model.DateOfBirth, new { @class = "form-control datepicker textbox" , id = "DateOfBirth"} )</div>
+                                <div class="divTableCell">@Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })</div>
+                            </div>
+                            <div class="divTableRow">
+                                <div class="divTableCell">@Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })</div>
+                                <div class="divTableCell">&nbsp;</div>
+                                <div class="divTableCell">@Html.DropDownListFor(model => model.Gender, Model.GenderList, new { @class = "dropdown" })</div>
+                                <div class="divTableCell">@Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })</div>
+                            </div>
+                            <div class="divTableRow">
+                                <div class="divTableCell">@Html.LabelFor(model => model.DateOfExpiry, htmlAttributes: new { @class = "control-label col-md-2" })</div>
+                                <div class="divTableCell">&nbsp;</div>
+                                <div class="divTableCell">@Html.TextBoxFor(model => model.DateOfExpiry, new { @class = "datepicker form-control textbox", id = "DateOfExpiry" })</div>
+                                <div class="divTableCell">@Html.ValidationMessageFor(model => model.DateOfExpiry, "", new { @class = "text-danger" })</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 100%; padding-left: 50px;">
+                    <div class="divTableCell">@Html.LabelFor(model => model.MrzRow2, htmlAttributes: new { @class = "control-label col-md-2" })</div>
+                    <div class="divTableCell">&nbsp;</div>
+                    <div class="divTableCell">@Html.TextBoxFor(model => model.MrzRow2, new { @class = "mrzRow2" })</div>
+                    <div class="divTableCell">@Html.ValidationMessageFor(model => model.MrzRow2, "", new { @class = "text-danger" })</div>
+                </div>
+                <div style="width: 100%;padding-left: 20px; padding-top: 20px;">
+                    <div class="divTableCell"></div>
+                    <div class="divTableCell merge"></div>
+                    <div class="divTableCell merge"><input type="submit" value="Validate" class="btn btn-default" /></div>
+                    <div class="divTableCell">&nbsp;</div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+﻿.leftCol {
+    float: left !important;
+}
+
+.rightcol {
+    float: right !important;
+}
+
+.divTable {
+    display: table;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.divTableRow {
+    display: table-row;
+}
+
+.divTableHeading {
+    display: table-header-group;
+}
+
+.divTableCell, .divTableHead {
+    border: 0px solid #999999;
+    display: table-cell;
+    padding: 3px 10px;
+}
+
+.divTableHeading {
+    background-color: #EEE;
+    display: table-header-group;
+    font-weight: bold;
+}
+
+.divTableFoot {
+    background-color: #EEE;
+    display: table-footer-group;
+    font-weight: bold;
+}
+
+.divTableBody {
+    display: table-row-group;
+}
+
+.text-danger {
+    color: red;
+    font-size: 12px;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 12px;
+    padding: 5px;
+    z-index: 100;
+    horiz-align: center;
+    vertical-align: middle;
+    width: 600px;
+    position: absolute;
+}
+
+.mrzRow2 {
+    width: 400px !important;
+}
+
+.dropdown {
+    width: 153px !important;
+    horiz-align: left;
+}
+
+.textbox {
+    width: 150px !important;
+}
+
+.merge {
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: right;
+    width: 45%;
+}
+
+.col-md-2 {
+    width: 100px !important;
+}
+
+.mainDiv {
+    background-color: #fbd2d7;
+    border: solid 1px black;
+}
+
+.leftDiv {
+    float: left;
+    width: 29%;
+    background-color: #fbd2d7;
+}
+
+.rightDiv {
+    float: right;
+    width: 70%;
+    background-color: #fbd2d7;
+}
+
+.header {
+    font-weight: bold !important;
+    font-size: 15px !important;
+}
+
+.rowGrey {
+    background-color: grey;
+}
+
+.divAlternateRowGrey {
+    display: table-row;
+    background-color: lightgrey !important;
+    width: 100%;
+}
+
+.divGreyTableRow {
+    display: table-row;
+     background-color: darkgray !important;
+    width: 100%;
+}
